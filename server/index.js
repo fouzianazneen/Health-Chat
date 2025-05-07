@@ -4,6 +4,7 @@ import express from "express";
  import cors from "cors";
   import authRoutes from "./routes/authRoutes.js";
   import appointmentRoutes from "./routes/appointmentRoutes.js";
+  
  dotenv.config();
  const app = express();
   app.use(cors());
