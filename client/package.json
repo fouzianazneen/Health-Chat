@@ -1,6 +1,7 @@
 {
   "name": "health-chat-client",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "start": "vite",
     "dev": "vite",
@@ -11,10 +12,18 @@
     "axios": "^1.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.10.0"
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^6.30.0",
+    "react-spinners": "^0.17.0",
+    "react-toastify": "^11.0.5",
+    "swiper": "^11.2.6"
   },
   "devDependencies": {
-    "tailwindcss": "^3.3.2",
-    "vite": "^4.3.2"
+    "@tailwindcss/vite": "^4.1.5",
+    "@vitejs/plugin-react": "^4.4.1",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17",
+    "vite": "^6.3.5"
   }
 }

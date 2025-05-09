@@ -1,8 +1,221 @@
+/* /* @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/*
+body {
+  @apply bg-gray-50 text-gray-900;
+  font-family: 'Inter', sans-serif;
+}
+
+*
+
+
+
+
+@layer base {
+  section {
+    @apply py-[75px]
+  }
+  
+}
+
+
+@layer components{
+  .container {
+    @apply max-w-full w-[1440px] px-5 mx-auto
+  }
+
+  .btn{
+    @apply bg-primaryColor py-[15px] px-[35px] rounded-[50px] text-white font-[600] mt-[38px]
+  }
+  .heading{
+    @apply text-[44px] leading-[54px] font-[700] text-headingColor
+  }
+
+  .text__para{
+    @apply text-[18px] leading-[30px] font-[400] text-textColor mt-[18px]
+  }
+
+  .header{
+    @apply bg-[url('./assets/images/mask.png')] bg-no-repeat bg-center bg-cover w-full h-[100px] leading-[100px];
+  }
+
+  .hero__section{
+    @apply bg-[url('./assets/images/hero-bg.png')] bg-no-repeat bg-center bg-cover;
+  }
+}
+
+
+@media only screen and (max-width:1024px) {
+  .container{
+    @apply w-full;
+
+  }
+  section {
+    @apply py-[35px];
+  }
+}
+
+@media only screen and (max-width: 768px){
+  .heading{
+    @apply text-[26px] leading-[36px];
+  }
+  .text__para{
+    @apply text-[16px] leading-7 mt-3;
+  }
+} 
+
+
+
+
+
+
+
+
+/* index.css - This file should load Tailwind *
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-gray-50 text-gray-900;
-  font-family: 'Inter', sans-serif;
+@layer base {
+  section {
+    @apply py-[75px]
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-full w-[1440px] px-5 mx-auto
+  }
+
+  .btn {
+    @apply bg-primaryColor py-[15px] px-[35px] rounded-[50px] text-white font-[600] mt-[38px]
+  }
+  
+  .heading {
+    @apply text-[44px] leading-[54px] font-[700] text-headingColor
+  }
+
+  .text__para {
+    @apply text-[18px] leading-[30px] font-[400] text-textColor mt-[18px]
+  }
+
+  .header {
+    @apply bg-[url('./assets/images/mask.png')] bg-no-repeat bg-center bg-cover w-full h-[100px] leading-[100px];
+  }
+
+  .hero__section {
+    @apply bg-[url('./assets/images/hero-bg.png')] bg-no-repeat bg-center bg-cover;
+  }
+}
+
+@media only screen and (max-width:1024px) {
+  .container {
+    @apply w-full;
+  }
+  
+  section {
+    @apply py-[35px];
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .heading {
+    @apply text-[26px] leading-[36px];
+  }
+  
+  .text__para {
+    @apply text-[16px] leading-7 mt-3;
+  }
+} */
+
+
+
+
+
+
+
+/* Import Google Fonts first */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&display=swap');
+
+/* Then Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Then custom styles */
+@layer base {
+  section {
+    @apply py-[75px];
+  }
+  
+  body {
+    font-family: "Manrope", sans-serif;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-full w-[1440px] px-5 mx-auto;
+  }
+
+  .btn {
+    @apply bg-primaryColor py-[15px] px-[35px] rounded-[50px] text-white font-[600] mt-[38px];
+  }
+  
+  .heading {
+    @apply text-[44px] leading-[54px] font-[700] text-headingColor;
+  }
+
+  .text__para {
+    @apply text-[18px] leading-[30px] font-[400] text-textColor mt-[18px];
+  }
+
+  /* Header styles */
+  /* .header {
+    @apply w-full h-[100px] leading-[100px];
+  } */
+  .header {
+    @apply bg-[url('./assets/images/mask.png')] bg-no-repeat bg-center bg-cover w-full h-[100px] leading-[100px];
+  }
+
+  .sticky__header {
+    @apply bg-white h-20 leading-[80px] sticky top-0 left-0 z-[9999] shadow-md;
+  }
+
+  /* Navigation menu for mobile */
+  .show__menu {
+    @apply block;
+  }
+}
+
+/* Media queries */
+@media only screen and (max-width:1024px) {
+  .container {
+    @apply w-full;
+  }
+  
+  section {
+    @apply py-[35px];
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .heading {
+    @apply text-[26px] leading-[36px];
+  }
+  
+  .text__para {
+    @apply text-[16px] leading-7 mt-3;
+  }
+  
+  .navigation {
+    @apply w-full h-full fixed top-0 left-0 z-[100] bg-[#00000084] hidden;
+  }
+  
+  .menu {
+    @apply w-[15rem] h-full absolute top-0 right-0 bg-white z-[200] flex flex-col justify-center items-center leading-[30px];
+  }
 }
