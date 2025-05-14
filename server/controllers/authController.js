@@ -184,20 +184,20 @@ export const register = async (req, res) => {
   }
 };
 
+
+
 export const login = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, role } = req.body;
 
   try {
     let user = null;
 
-    const patient = await User.findOne({ email });
-    const doctor = await Doctor.findOne({ email });
-
-    if (patient) {
-      user = patient;
-    }
-    if (doctor) {
-      user = doctor;
+    if (role === "patient") {
+      user = await User.findOne({ email });
+    } else if (role === "doctor") {
+      user = await Doctor.findOne({ email });
+    } else {
+      return res.status(400).json({ message: "Invalid role" });
     }
 
     if (!user) {
@@ -210,14 +210,14 @@ export const login = async (req, res) => {
     }
 
     const token = generateToken(user);
-    const { role, appointments, ...rest } = user._doc;
+    const { appointments, ...rest } = user._doc;
 
     res.status(200).json({
       status: true,
       message: "Successfully logged in",
       token,
       data: { ...rest },
-      role,
+      role: user.role,
     });
   } catch (err) {
     console.error("Login Error:", err);

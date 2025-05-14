@@ -1,7 +1,10 @@
 import Stripe from 'stripe';
-import Doctor from '../models/doctorModel';
-import User from '../models/userModel';
-import Booking from '../models/bookingModel'; // Make sure this exists and is imported
+// import Doctor from '../models/doctorModel';
+// import User from '../models/userModel';
+// import Booking from '../mode'; // Make sure this exists and is imported
+import User from "../models/UserSchema.js";
+import Booking from '../models/BookingSchema.js';
+import Doctor from '../models/DoctorSchema.js';
 
 export const getCheckoutSession = async (req, res) => {
   try {

@@ -31,7 +31,7 @@ const Login = () => {
     setLoading(true);
   
     try {
-      console.log("Attempting to register with:", `${BASE_URL}/Auth/register`);
+      console.log("Attempting to login with:", `${BASE_URL}/Auth/login`);
       
       const res = await fetch(`${BASE_URL}/Auth/login`, {
         method: 'POST',

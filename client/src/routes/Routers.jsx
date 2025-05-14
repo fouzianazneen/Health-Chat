@@ -39,6 +39,7 @@ import Signup from "../pages/Signup";
 import Contact from "../pages/Contact";
 import Services from "../pages/Services";
 import MyAccount from "../DashBoard/user-account/MyAccount";
+import CheckoutSuccess from "../pages/CheckoutSuccess";
 import Dashboard from "../DashBoard/doctor-account/Dashboard";
 
 const Routers = () => {
@@ -52,6 +53,7 @@ const Routers = () => {
       <Route path="/register" element={<Signup />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/services" element={<Services />} />
+       <Route path="/checkout-success" element={<CheckoutSuccess />} />
       <Route
         path="/users/profile/me"
         element={
