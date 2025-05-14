@@ -37,7 +37,7 @@ const Layout = () => {
   return (
     <>
       <Header />
-      <main>
+      <main className="p-0 m-0">
         <Routers />
       </main>
       <Footer />

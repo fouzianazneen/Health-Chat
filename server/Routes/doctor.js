@@ -7,6 +7,7 @@ import {
   deleteDoctor,
   getAllDoctor,
   getSingleDoctor,
+  getDoctorProfile,
 } from "../controllers/doctorController.js";
 
 import { authenticate, restrict } from "../auth/verifyToken.js";
@@ -29,6 +30,12 @@ router.get("/:id", getSingleDoctor);
 router.put("/:id",authenticate, restrict(['doctor']), updateDoctor);            
 
 // ✅ Delete user by ID
-router.delete("/:id",authenticate, restrict(['doctor']), deleteDoctor);         
+router.delete("/:id",authenticate, restrict(['doctor']), deleteDoctor);   
+
+// router.get("/profile/me",authenticate, restrict(['doctor']), getDoctorProfile); 
+
+router.get("/profile/me", authenticate, restrict(['doctor']), getDoctorProfile);
+
+
 
 export default router;

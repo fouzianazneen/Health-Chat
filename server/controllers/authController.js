@@ -184,51 +184,6 @@ export const register = async (req, res) => {
   }
 };
 
-// export const login = async (req, res) => {
-//   const { email, password } = req.body;
-
-//   try {
-//     let user = null;
-//     const patient = await User.findOne({ email });
-//     const doctor = await Doctor.findOne({ email });
-
-//     if (patient) {
-//       user = patient;
-//     }
-//     if (doctor) {
-//       user = doctor;
-//     }
-
-//     // check if user exists or not
-//     if (!user) {
-//       return res.status(404).json({ message: "User not found" });
-//     }
-
-//     // compare password
-//     const isPasswordMatch = await bcrypt.compare(req.user.password, user.password);
-//     if (!isPasswordMatch) {
-//       return res.status(400).json({ status: false, message: "Invalid credentials" });
-//     }
-
-//     // get token
-//     const token = generateToken(user);
-
-//     const { password, role, appointments, ...rest } = user._doc;
-
-//     res.status(200).json({
-//       status: true,
-//       message: "Successfully logged in",
-//       token,
-//       data: { ...rest },
-//       role,
-//     });
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).json({ message: "Internal server error" });
-//   }
-// };
-
-
 export const login = async (req, res) => {
   const { email, password } = req.body;
 

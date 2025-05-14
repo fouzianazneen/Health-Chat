@@ -1,3 +1,6 @@
+// import BookingSchema from "../";
+import Booking from "../models/BookingSchema.js"; // ✅ Make sure this import exists
+
 import Doctor from "../models/DoctorSchema.js";
 
 export const updateDoctor = async (req, res) => {
@@ -93,6 +96,35 @@ export const getAllDoctor = async (req, res) => {
     res.status(404).json({
       success: false,
       message: "Doctors not found",
+    });
+  }
+};
+
+
+
+
+export const getDoctorProfile = async (req, res) => {
+  const doctorId = req.userId; // ✅ Corrected variable name
+
+  try {
+    const doctor = await Doctor.findById(doctorId).select("-password");
+
+    if (!doctor) {
+      return res.status(404).json({ success: false, message: 'Doctor not found' });
+    }
+
+    const appointments = await Booking.find({ doctor: doctorId });
+
+    res.status(200).json({
+      success: true,
+      message: 'Profile info is getting',
+      data: { ...doctor._doc, appointments },
+    });
+  } catch (err) {
+    console.error("Error in getDoctorProfile:", err);
+    res.status(500).json({
+      success: false,
+      message: "Something went wrong, cannot get user profile",
     });
   }
 };

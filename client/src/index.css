@@ -183,7 +183,28 @@ body {
 
   .sticky__header {
     @apply bg-white h-20 leading-[80px] sticky top-0 left-0 z-[9999] shadow-md;
+    
   }
+
+
+  .hero__section{
+    @apply bg-[url('./assets/images/hero-bg.png')] bg-no-repeat bg-center bg-cover;
+     margin-top: 0 !important;
+  padding-top: 0 !important;
+    
+  }
+
+  .form__label{
+    @apply text-textColor font-semibold text-[16px] leading-7 mb-2;
+  }
+
+  .form__input {
+  @apply w-full px-4 py-3 
+         border border-solid border-[#0066ff61] focus:outline-none focus:border-primaryColor text-[16px] leading-7 text-headingColor 
+         placeholder:text-textColor cursor-pointer rounded-md;
+  }
+
+
 
   /* Navigation menu for mobile */
   .show__menu {

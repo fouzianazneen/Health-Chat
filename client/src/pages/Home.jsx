@@ -104,6 +104,10 @@
 
 // export default Home
 
+
+
+
+
 import React from "react";
 import heroImg01 from "../assets/images/hero-Img01.png";
 import heroImg02 from "../assets/images/hero-Img02.png";
@@ -127,7 +131,9 @@ const Home = () => {
   return (
     <>
       {/* Hero section */}
-      <section className="hero__section pt-[60px] 2xl:h-[800px]">
+      {/* <section className="hero__section pt-0 2xl:h-[800px]"> */}
+      <section className="hero__section pt-0 mt-0">
+
         <div className="container">
           <div className="flex flex-col lg:flex-row gap-[90px] items-center justify-between">
             {/* Hero content */}
