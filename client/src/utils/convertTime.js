@@ -10,7 +10,7 @@ const convertTime = time => {
     meridiem = "pm";
 
     if(hours > 12) {
-      hpurs -= 12;
+      hours -= 12;
     }
   }
 

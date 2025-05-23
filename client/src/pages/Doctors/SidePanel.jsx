@@ -30,7 +30,9 @@ const SidePanel = ({doctorId, ticketPrice, timeSlots}) => {
 
   return (
     // <div className="shadow-panelShadow p-3 lg:p-5 rounded-md">
-    <div className="shadow-panelShadow p-3 lg:p-4 rounded-md max-h-[260px] overflow-y-auto">
+    <div className="shadow-panelShadow p-3 lg:p-4 rounded-md max-h-[260px] overflow-hidden">
+    {/* // <div className="shadow-panelShadow p-3 lg:p-4 rounded-md max-h-[260px] overflow-y-scroll scrollbar-hide"> */}
+
 
       <div className="flex items-center justify-between">
         <p className="text__para mt-0 font-semibold">Ticket Price</p>
