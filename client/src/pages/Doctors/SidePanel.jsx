@@ -1,5 +1,7 @@
 import convertTime from "../../utils/convertTime";
 import { BASE_URL, getToken } from "../../config";
+import { toast } from "react-toastify";
+
 const SidePanel = ({doctorId, ticketPrice, timeSlots}) => {
 
   const bookingHandler = async()=> {
@@ -7,7 +9,7 @@ const SidePanel = ({doctorId, ticketPrice, timeSlots}) => {
       const res = await fetch(`${BASE_URL}/bookings/checkout-session/${doctorId}`, {
         method: 'POST',
         headers:{
-          Authorization: `Bearer ${getToken}`
+          Authorization: `Bearer ${getToken()}`
         }
       })
 
@@ -27,7 +29,9 @@ const SidePanel = ({doctorId, ticketPrice, timeSlots}) => {
   }
 
   return (
-    <div className="shadow-panelShadow p-3 lg:p-5 rounded-md">
+    // <div className="shadow-panelShadow p-3 lg:p-5 rounded-md">
+    <div className="shadow-panelShadow p-3 lg:p-4 rounded-md max-h-[260px] overflow-y-auto">
+
       <div className="flex items-center justify-between">
         <p className="text__para mt-0 font-semibold">Ticket Price</p>
         <span className="text-[16px] leading-7 lg:text-[22px] lg:leading-8 text-headingColor font-bold">

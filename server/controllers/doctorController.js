@@ -3,28 +3,153 @@ import Booking from "../models/BookingSchema.js"; // ✅ Make sure this import e
 
 import Doctor from "../models/DoctorSchema.js";
 
+// export const updateDoctor = async (req, res) => {
+//   const id = req.params.id;
+
+//   try {
+//     const updateDoctor = await Doctor.findByIdAndUpdate(
+//       id,
+//       { $set: req.body },
+//       { new: true }
+//     );
+
+//     res.status(200).json({
+//       success: true,
+//       message: "Successfully updated",
+//       data: updateDoctor,
+//     });
+//   } catch (err) {
+//     res.status(500).json({
+//       success: false,
+//       message: "failed to update",
+//     });
+//   }
+// };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export const updateDoctor = async (req, res) => {
+//   const id = req.params.id;
+
+//   try {
+//     // Remove password from request body if it exists and is empty
+//     const updateData = { ...req.body };
+//     if (updateData.password === "") {
+//       delete updateData.password;
+//     }
+
+//     const updateDoctor = await Doctor.findByIdAndUpdate(
+//       id,
+//       { $set: updateData },
+//       { new: true }
+//     ).select("-password");  // Don't return password in response
+
+//     res.status(200).json({
+//       success: true,
+//       message: "Successfully updated",
+//       data: updateDoctor,
+//     });
+//   } catch (err) {
+//     console.error("Error updating doctor:", err);
+//     res.status(500).json({
+//       success: false,
+//       message: "Failed to update",
+//       error: err.message,
+//     });
+//   }
+// };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export const updateDoctor = async (req, res) => {
   const id = req.params.id;
 
   try {
-    const updateDoctor = await Doctor.findByIdAndUpdate(
+    // First, get the current doctor data
+    const currentDoctor = await Doctor.findById(id);
+    
+    if (!currentDoctor) {
+      return res.status(404).json({
+        success: false,
+        message: "Doctor not found"
+      });
+    }
+
+    // Create update data from request body
+    const updateData = { ...req.body };
+    
+    // IMPORTANT: Never allow password updates through this endpoint
+    // This ensures the password field is never modified unintentionally
+    delete updateData.password;
+    
+    // Log what's being updated (for debugging)
+    console.log("Updating doctor with data:", JSON.stringify(updateData));
+
+    const updatedDoctor = await Doctor.findByIdAndUpdate(
       id,
-      { $set: req.body },
+      { $set: updateData },
       { new: true }
-    );
+    ).select("-password");
 
     res.status(200).json({
       success: true,
       message: "Successfully updated",
-      data: updateDoctor,
+      data: updatedDoctor,
     });
   } catch (err) {
+    console.error("Error updating doctor:", err);
     res.status(500).json({
       success: false,
-      message: "failed to update",
+      message: "Failed to update",
+      error: err.message,
     });
   }
 };
+
+
 
 export const deleteDoctor = async (req, res) => {
   const id = req.params.id;
@@ -62,11 +187,6 @@ export const getSingleDoctor = async (req, res) => {
     });
   }
 };
-
-
-
-
-
 
 
 
@@ -128,3 +248,10 @@ export const getDoctorProfile = async (req, res) => {
     });
   }
 };
+
+
+
+
+
+
+
