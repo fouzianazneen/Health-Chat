@@ -518,11 +518,26 @@ const Header = () => {
             >
               &times;
             </button>
-            <iframe
-              src="https://bf1f-2405-201-c00c-79c1-d940-ed16-1910-a579.ngrok-free.app/"
+            {/* <iframe
+              // src="https://bf1f-2405-201-c00c-79c1-d940-ed16-1910-a579.ngrok-free.app/"
               title="AI Chatbot"
               className="w-full h-full border-0"
-            ></iframe>
+            ></iframe> */}
+
+           <iframe
+  src="https://duck-settling-treefrog.ngrok-free.app"
+  title="AI Chatbot"
+  className="w-full h-full border-0"
+></iframe>
+
+
+<iframe
+  src="https://duck-settling-treefrog.ngrok-free.app"
+  title="AI Chatbot"
+  className="w-full h-full border-0"
+></iframe>
+
+
           </div>
         </div>
       )}
