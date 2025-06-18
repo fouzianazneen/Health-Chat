@@ -1,5 +1,14 @@
 
 
+
+
+
+import Stripe from 'stripe';
+import User from "../models/UserSchema.js";
+import Booking from '../models/BookingSchema.js';
+import Doctor from '../models/DoctorSchema.js';
+
+
 export const getCheckoutSession = async (req, res) => {
   try {
     // Find doctor and user from DB
